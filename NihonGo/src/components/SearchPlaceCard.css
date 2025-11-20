@@ -1,4 +1,4 @@
-.search-card { background: #fff; border-radius: 10px; box-shadow: 0 1px 0 rgba(0,0,0,0.06); overflow: hidden; width: 100%; max-width: 360px; display: flex; flex-direction: column; }
+.search-card { background: #fff; border-radius: 10px; box-shadow: 0 1px 0 rgba(0,0,0,0.06); overflow: hidden; width: 100%; max-width: 360px; display: flex; flex-direction: column; cursor: pointer; }
 .search-card-media { position: relative; }
 .search-card-media img { width: 100%; height: 160px; object-fit: cover; display: block; }
 .fav-btn { position: absolute; top: 8px; right: 8px; background: rgba(255,255,255,0.85); border: none; padding: 6px 8px; border-radius: 16px; cursor: pointer; }

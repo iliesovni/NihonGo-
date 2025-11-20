@@ -21,7 +21,13 @@ const Favorites: React.FC = () => {
         ) : (
           <div className="favorites-grid">
             {places.map((p) => (
-              <SearchPlaceCard key={p.id} place={p} isFavorite={isFavorite(p.id)} onToggleFavorite={toggleFavorite} />
+              <SearchPlaceCard
+                key={p.id}
+                place={p}
+                isFavorite={isFavorite(p.id)}
+                onToggleFavorite={toggleFavorite}
+                onOpen={(id) => { window.location.hash = `#/place/${id}`; }}
+              />
             ))}
           </div>
         )}

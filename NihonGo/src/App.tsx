@@ -3,6 +3,7 @@ import Home from './pages/Home';
 import Search from './pages/Search';
 import Favorites from './pages/Favorites';
 import './App.css';
+import PlaceDetails from './pages/PlaceDetails';
 
 function App() {
   const [route, setRoute] = useState(() => window.location.hash || '#/home');
@@ -17,6 +18,7 @@ function App() {
   let Content = <Home />;
   if (route.startsWith('#/search')) Content = <Search />;
   if (route.startsWith('#/favorites')) Content = <Favorites />;
+  if (route.startsWith('#/place/')) Content = <PlaceDetails />;
 
   return (
     <div className="app-root">

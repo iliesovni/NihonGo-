@@ -77,7 +77,13 @@ const Search: React.FC = () => {
 
       <div className="results-grid">
         {results.map((p) => (
-          <SearchPlaceCard key={p.id} place={p} isFavorite={isFavorite(p.id)} onToggleFavorite={toggleFavorite} />
+          <SearchPlaceCard
+            key={p.id}
+            place={p}
+            isFavorite={isFavorite(p.id)}
+            onToggleFavorite={toggleFavorite}
+            onOpen={(id) => { window.location.hash = `#/place/${id}`; }}
+          />
         ))}
       </div>
     </div>

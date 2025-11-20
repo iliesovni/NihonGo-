@@ -15,6 +15,7 @@ export interface Place {
   popularity: number;
   price?: number;
   duration?: string;
+  hours?: string;
 }
 
 export interface City { id: number; name: string; regionId: number; }
@@ -39,7 +40,6 @@ const dataset: Dataset = {
     shortDescription: l.description_courte ?? l.shortDescription ?? "",
     description: l.description ?? l.fullDescription ?? "",
     cityId: Number(l.ville_id ?? l.city_id ?? l.cityId ?? 0),
-    // If the place JSON doesn't contain region info, try to derive it from the cities list in the raw data
     regionId: Number(
       l.region_id ?? l.regionId ?? (
         (raw.villes || []).find((v: any) => Number(v.id) === Number(l.ville_id ?? l.city_id ?? l.cityId ?? 0))?.region_id
@@ -58,6 +58,7 @@ const dataset: Dataset = {
     })(),
     price: Number(l.prix ?? l.price ?? 0),
     duration: l.duree ?? l.duration ?? "",
+    hours: l.horaires ?? l.hours ?? "",
     popularity: Number(l.popularite ?? l.popularity ?? 0),
   })),
   cities: (raw.villes || raw.cities || []).map((c: any) => ({
@@ -191,7 +192,6 @@ export function useSearchPlaces() {
   };
 }
 
-// Export lists for use in UI
 export const allTypes = dataset.types;
 export const allCities = dataset.cities;
 export const allRegions = dataset.regions;
@@ -201,6 +201,14 @@ export function usePlaceDetails(id: number | string) {
     const numId = Number(id);
     return dataset.places.find((p) => p.id === numId) ?? null;
   }, [id]);
+}
+
+export function usePlacesByCity(cityId: number | string, limit = 6) {
+  return useMemo(() => {
+    const num = Number(cityId);
+    if (!num) return [] as Place[];
+    return dataset.places.filter((p) => p.cityId === num).slice(0, limit);
+  }, [cityId, limit]);
 }
 
 export function useFavorites() {

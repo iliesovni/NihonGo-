@@ -7,14 +7,20 @@ interface Props {
   place: Place;
   isFavorite: boolean;
   onToggleFavorite: (id: number) => void;
+  onOpen?: (id: number) => void;
 }
 
-const SearchPlaceCard: React.FC<Props> = ({ place, isFavorite, onToggleFavorite }) => {
+const SearchPlaceCard: React.FC<Props> = ({ place, isFavorite, onToggleFavorite, onOpen }) => {
+  const handleOpen = () => {
+    if (onOpen) onOpen(place.id);
+    else window.location.hash = `#/place/${place.id}`;
+  };
+
   return (
-    <article className="search-card">
+    <article className="search-card" onClick={handleOpen} role="button" tabIndex={0} onKeyDown={(e) => { if (e.key === 'Enter') handleOpen(); }}>
       <div className="search-card-media">
         <img src={place.image} alt={place.name} />
-        <button className={`fav-btn ${isFavorite ? 'active' : ''}`} onClick={() => onToggleFavorite(place.id)} aria-label="Favoris">♡</button>
+        <button className={`fav-btn ${isFavorite ? 'active' : ''}`} onClick={(e) => { e.stopPropagation(); onToggleFavorite(place.id); }} aria-label="Favoris">♡</button>
         <div className="search-card-pop">{place.popularity}% populaire</div>
       </div>
       <div className="search-card-body">
