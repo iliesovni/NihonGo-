@@ -1,0 +1,7 @@
+.favorites-main { max-width: 1200px; margin: 1.5rem auto; padding: 0 1rem; }
+.favorites-grid { display:flex; gap:1rem; flex-wrap:wrap; }
+.empty { color:#666; margin-top:1rem; }
+
+@media (max-width:900px) {
+  .favorites-grid { justify-content:center; }
+}

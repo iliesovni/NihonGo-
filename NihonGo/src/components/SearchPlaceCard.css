@@ -1,0 +1,25 @@
+.search-card { background: #fff; border-radius: 10px; box-shadow: 0 1px 0 rgba(0,0,0,0.06); overflow: hidden; width: 100%; max-width: 360px; display: flex; flex-direction: column; }
+.search-card-media { position: relative; }
+.search-card-media img { width: 100%; height: 160px; object-fit: cover; display: block; }
+.fav-btn { position: absolute; top: 8px; right: 8px; background: rgba(255,255,255,0.85); border: none; padding: 6px 8px; border-radius: 16px; cursor: pointer; }
+.fav-btn.active { background: #f6d6d6; }
+.search-card-pop { position: absolute; left: 8px; top: 8px; background: rgba(0,0,0,0.45); color: #fff; padding: 4px 8px; border-radius: 8px; font-size: 0.8rem; }
+.search-card-body { padding: 12px; text-align: left; }
+.search-card-title { margin: 0 0 6px 0; font-size: 1.05rem; }
+.search-card-sub { font-size: 0.9rem; color: #666; margin-bottom: 6px; }
+.search-card-sub .loc-icon { margin-right: 6px; font-size: 0.95rem; }
+.search-card-desc { font-size: 0.9rem; color: #333; margin: 0 0 8px; max-height: 3.6em; overflow: hidden; }
+.search-card-meta { display:flex; gap: 12px; align-items: center; font-weight:600; margin-bottom:8px; justify-content: space-between; }
+.meta-left { display:flex; align-items:center; }
+.meta-right { display:flex; align-items:center; }
+.duration { display:flex; align-items:center; gap:6px; color:#444; font-weight:600; }
+.clock { font-size:1rem; }
+.price { color:#c94b4b; font-weight:700; }
+.price.free { color:#2a9d31; font-weight:700; }
+.search-card-tags { display:flex; gap:6px; flex-wrap:wrap; }
+.tag { background:#f0f0f0; padding:4px 8px; border-radius:12px; font-size:0.8rem; }
+
+@media (max-width: 900px) {
+  .search-card { max-width: 100%; }
+  .search-card-media img { height: 140px; }
+}

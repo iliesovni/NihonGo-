@@ -1,0 +1,8 @@
+.navbar { background:#0f1720; color: #fff; padding: 0.5rem 0; width: 100%; position: fixed; left: 0; top: 0; }
+.navbar-inner { max-width: 1200px; margin: 0 auto; display:flex; align-items:center; justify-content:space-between; padding: 0 1rem; }
+.navbar-right ul { list-style: none; display:flex; gap: 1.5rem; margin:0; padding:0; }
+.navbar-right a { color: #fff; text-decoration: none; }
+.site-logo img { height:70px; }
+
+/* Ensure navbar background spans full viewport width and sits above page content */
+.navbar { z-index: 1200; box-shadow: 0 1px 0 rgba(0,0,0,0.15); }
