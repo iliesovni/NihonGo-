@@ -26,7 +26,7 @@ const PlaceDetails: React.FC = () => {
 
   const related = usePlacesByCity(place?.cityId ?? 0, 6).filter((p) => p.id !== place?.id);
   
-  // Calculer le nombre d'éléments visibles selon la largeur de l'écran
+
   const getItemsPerView = () => {
     if (window.innerWidth <= 600) return 1;
     if (window.innerWidth <= 980) return 2;
@@ -38,7 +38,7 @@ const PlaceDetails: React.FC = () => {
   useEffect(() => {
     const handleResize = () => {
       setItemsPerView(getItemsPerView());
-      // Réinitialiser l'index si nécessaire
+
       setRelatedIndex((prev) => {
         const maxIndex = Math.max(0, related.length - getItemsPerView());
         return Math.min(prev, maxIndex);
