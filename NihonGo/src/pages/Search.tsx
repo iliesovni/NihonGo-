@@ -18,6 +18,7 @@ const Search: React.FC = () => {
     setSortBy,
     results,
     total,
+    availableOptions,
   } = useSearchPlaces();
 
   const { toggleFavorite, isFavorite } = useFavorites();
@@ -33,9 +34,19 @@ const Search: React.FC = () => {
             Type
             <select value={type} onChange={(e) => setType(e.target.value ? Number(e.target.value) : '')}>
               <option value="">Tous les types</option>
-              {allTypes.map((t) => (
-                <option key={t.id} value={t.id}>{t.name}</option>
-              ))}
+              {allTypes.map((t) => {
+                const isAvailable = availableOptions.types.has(t.id);
+                return (
+                  <option 
+                    key={t.id} 
+                    value={t.id}
+                    disabled={!isAvailable}
+                    className={!isAvailable ? 'disabled-option' : ''}
+                  >
+                    {t.name}
+                  </option>
+                );
+              })}
             </select>
           </label>
 
@@ -43,9 +54,19 @@ const Search: React.FC = () => {
             Ville
             <select value={city} onChange={(e) => setCity(e.target.value ? Number(e.target.value) : '')}>
               <option value="">Toutes les villes</option>
-              {allCities.map((c) => (
-                <option key={c.id} value={c.id}>{c.name}</option>
-              ))}
+              {allCities.map((c) => {
+                const isAvailable = availableOptions.cities.has(c.id);
+                return (
+                  <option 
+                    key={c.id} 
+                    value={c.id}
+                    disabled={!isAvailable}
+                    className={!isAvailable ? 'disabled-option' : ''}
+                  >
+                    {c.name}
+                  </option>
+                );
+              })}
             </select>
           </label>
 
@@ -53,10 +74,34 @@ const Search: React.FC = () => {
             Prix
             <select value={price} onChange={(e) => setPrice(e.target.value)}>
               <option value="">Tous les prix</option>
-              <option value="free">Gratuit</option>
-              <option value="low">≤ 500</option>
-              <option value="mid">501 - 1500</option>
-              <option value="high">&gt; 1500</option>
+              <option 
+                value="free"
+                disabled={!availableOptions.prices.has('free')}
+                className={!availableOptions.prices.has('free') ? 'disabled-option' : ''}
+              >
+                Gratuit
+              </option>
+              <option 
+                value="low"
+                disabled={!availableOptions.prices.has('low')}
+                className={!availableOptions.prices.has('low') ? 'disabled-option' : ''}
+              >
+                ≤ 500
+              </option>
+              <option 
+                value="mid"
+                disabled={!availableOptions.prices.has('mid')}
+                className={!availableOptions.prices.has('mid') ? 'disabled-option' : ''}
+              >
+                501 - 1500
+              </option>
+              <option 
+                value="high"
+                disabled={!availableOptions.prices.has('high')}
+                className={!availableOptions.prices.has('high') ? 'disabled-option' : ''}
+              >
+                &gt; 1500
+              </option>
             </select>
           </label>
 

@@ -1,10 +1,12 @@
 import React from 'react';
-import type { Place } from '../hooks/usePlaces';
+import type { PlaceWithScore } from '../hooks/usePlaces';
 import { getCityName, getRegionName, getTagName } from '../hooks/usePlaces';
+import FavoriteImg from '../assets/Favorite.png';
+import notFavoriteImg from '../assets/notFavorite.png';
 import './SearchPlaceCard.css';
 
 interface Props {
-  place: Place;
+  place: PlaceWithScore;
   isFavorite: boolean;
   onToggleFavorite: (id: number) => void;
   onOpen?: (id: number) => void;
@@ -20,8 +22,15 @@ const SearchPlaceCard: React.FC<Props> = ({ place, isFavorite, onToggleFavorite,
     <article className="search-card" onClick={handleOpen} role="button" tabIndex={0} onKeyDown={(e) => { if (e.key === 'Enter') handleOpen(); }}>
       <div className="search-card-media">
         <img src={place.image} alt={place.name} />
-        <button className={`fav-btn ${isFavorite ? 'active' : ''}`} onClick={(e) => { e.stopPropagation(); onToggleFavorite(place.id); }} aria-label="Favoris">♡</button>
+        <button className={`fav-btn ${isFavorite ? 'active' : ''}`} onClick={(e) => { e.stopPropagation(); onToggleFavorite(place.id); }} aria-label="Favoris">
+          <img src={isFavorite ? FavoriteImg : notFavoriteImg} alt={isFavorite ? 'Retirer des favoris' : 'Ajouter aux favoris'} />
+        </button>
         <div className="search-card-pop">{place.popularity}% populaire</div>
+        {place.matchScore !== undefined && (
+          <div className="search-card-match">
+            {Math.round(place.matchScore)}% correspondance
+          </div>
+        )}
       </div>
       <div className="search-card-body">
         <h3 className="search-card-title">{place.name}</h3>

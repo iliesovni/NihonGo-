@@ -10,13 +10,18 @@ const PopularGrid: React.FC = () => {
     window.location.hash = `#/place/${id}`;
   };
 
+  // Dupliquer les places pour créer un effet de boucle infinie
+  const duplicatedPlaces = [...places, ...places, ...places];
+
   return (
     <section className="popular-section">
       <h2 className="section-title">Les incontournables</h2>
-      <div className="popular-grid">
-        {places.map((p) => (
-          <PlaceCard key={p.id} place={p} onClick={handleClick} />
-        ))}
+      <div className="popular-carousel-wrapper">
+        <div className="popular-carousel">
+          {duplicatedPlaces.map((p, index) => (
+            <PlaceCard key={`${p.id}-${index}`} place={p} onClick={handleClick} />
+          ))}
+        </div>
       </div>
     </section>
   );

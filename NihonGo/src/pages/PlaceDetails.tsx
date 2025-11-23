@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { usePlaceDetails, useFavorites, usePlacesByCity, getCityName, getRegionName, getTypeName } from '../hooks/usePlaces';
 import Navbar from '../components/Navbar';
+import FavoriteImg from '../assets/Favorite.png';
+import notFavoriteImg from '../assets/notFavorite.png';
 import './PlaceDetails.css';
 
 function useIdFromHash() {
@@ -14,6 +16,7 @@ const PlaceDetails: React.FC = () => {
   const place = usePlaceDetails(id ?? 0);
   const { isFavorite, toggleFavorite } = useFavorites();
   const [showModal, setShowModal] = useState(false);
+  const [relatedIndex, setRelatedIndex] = useState(0);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setShowModal(false); };
@@ -22,6 +25,39 @@ const PlaceDetails: React.FC = () => {
   }, [showModal]);
 
   const related = usePlacesByCity(place?.cityId ?? 0, 6).filter((p) => p.id !== place?.id);
+  
+  // Calculer le nombre d'éléments visibles selon la largeur de l'écran
+  const getItemsPerView = () => {
+    if (window.innerWidth <= 600) return 1;
+    if (window.innerWidth <= 980) return 2;
+    return 3;
+  };
+  
+  const [itemsPerView, setItemsPerView] = useState(getItemsPerView());
+  
+  useEffect(() => {
+    const handleResize = () => {
+      setItemsPerView(getItemsPerView());
+      // Réinitialiser l'index si nécessaire
+      setRelatedIndex((prev) => {
+        const maxIndex = Math.max(0, related.length - getItemsPerView());
+        return Math.min(prev, maxIndex);
+      });
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [related.length]);
+  
+  const maxIndex = Math.max(0, related.length - itemsPerView);
+
+  const nextRelated = () => {
+    setRelatedIndex((prev) => Math.min(prev + 1, maxIndex));
+  };
+
+  const prevRelated = () => {
+    setRelatedIndex((prev) => Math.max(prev - 1, 0));
+  };
 
   if (!place) return (
     <div>
@@ -45,27 +81,13 @@ const PlaceDetails: React.FC = () => {
         <section className="place-content">
           <header className="place-header">
             <h1>{place.name}</h1>
-            <button className={`fav-detail ${isFavorite(place.id) ? 'active' : ''}`} onClick={() => toggleFavorite(place.id)} aria-label="Favoris">♡</button>
+            <button className={`fav-detail ${isFavorite(place.id) ? 'active' : ''}`} onClick={() => toggleFavorite(place.id)} aria-label="Favoris">
+              <img src={isFavorite(place.id) ? FavoriteImg : notFavoriteImg} alt={isFavorite(place.id) ? 'Retirer des favoris' : 'Ajouter aux favoris'} className="fav-icon" />
+            </button>
           </header>
           <div className="place-location">📍 {getCityName(place.cityId)}, {getRegionName(place.regionId)}</div>
 
           <p className="place-desc">{place.description}</p>
-
-          <h3>Également dans la même ville</h3>
-          <div className="related-row">
-            {related.length === 0 ? (
-              <div className="related-empty">Aucun autre endroit trouvé dans {getCityName(place.cityId)}.</div>
-            ) : (
-              related.map((r) => (
-                <div key={r.id} className="related-thumb">
-                  <a href={`#/place/${r.id}`} title={r.name}>
-                    <img src={r.image} alt={r.name} />
-                  </a>
-                  <div className="related-caption">{r.name}</div>
-                </div>
-              ))
-            )}
-          </div>
         </section>
 
         <aside className="place-aside">
@@ -97,6 +119,53 @@ const PlaceDetails: React.FC = () => {
           </div>
         </aside>
       </main>
+
+      <section className="related-section-full">
+        <h3>Également dans la même ville</h3>
+        {related.length === 0 ? (
+          <div className="related-empty">Aucun autre endroit trouvé dans {getCityName(place.cityId)}.</div>
+        ) : (
+          <div className="related-carousel-container">
+            <button 
+              className="related-carousel-btn related-carousel-btn-left" 
+              onClick={prevRelated}
+              disabled={relatedIndex === 0}
+              aria-label="Précédent"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+            <div className="related-carousel-wrapper">
+              <div 
+                className="related-carousel" 
+                style={{ 
+                  transform: `translateX(calc(-${relatedIndex} * (100% / ${itemsPerView})))` 
+                }}
+              >
+                {related.map((r) => (
+                  <div key={r.id} className="related-thumb">
+                    <a href={`#/place/${r.id}`} title={r.name}>
+                      <img src={r.image} alt={r.name} />
+                    </a>
+                    <div className="related-caption">{r.name}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <button 
+              className="related-carousel-btn related-carousel-btn-right" 
+              onClick={nextRelated}
+              disabled={relatedIndex >= maxIndex}
+              aria-label="Suivant"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        )}
+      </section>
       {showModal && (
         <div className="image-modal" role="dialog" aria-modal="true" onClick={() => setShowModal(false)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>

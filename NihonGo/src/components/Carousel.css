@@ -7,26 +7,393 @@
   z-index: 0;
 }
 
-.carousel-slide { position: relative; width: 100%; }
-.carousel-image { width: 100%; height: clamp(320px, 45vh, 520px); object-fit: cover; display: block; }
-.carousel-overlay {
-  position: absolute; left: 0; right: 0; top: 0; bottom: 0;
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  color: white; text-align: center; pointer-events: none;
+.carousel-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
 }
+
+.carousel-slide-wrapper {
+  display: flex;
+  width: 100%;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.carousel-slide {
+  position: relative;
+  width: 100%;
+  flex-shrink: 0;
+  min-height: clamp(320px, 45vh, 520px);
+}
+
+.carousel-image {
+  width: 100%;
+  height: clamp(320px, 45vh, 520px);
+  object-fit: cover;
+  display: block;
+}
+
 .carousel-gradient {
-  position: absolute; left: 0; right: 0; top: 0; bottom: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.22) 35%, rgba(0,0,0,0.35) 100%);
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.25) 35%, rgba(0,0,0,0.4) 100%);
 }
-.carousel-title { font-size: clamp(20px, 2.4vw, 36px); margin-bottom: 0.25rem; font-weight: 700; }
-.carousel-place { font-size: clamp(18px, 1.6vw, 28px); margin: 0.25rem 0; font-weight: 600; }
-.carousel-short { display: none; }
-.carousel-cta { display: inline-block; margin-top: 0.75rem; background: #b95a57; color: white; padding: 0.6rem 1.1rem; border-radius: 28px; text-decoration: none; pointer-events: auto; }
-.carousel-control { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.45); color: white; border: none; width: 44px; height: 44px; border-radius: 22px; font-size: 1.6rem; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 5; }
-.carousel-control.left { left: 16px; }
-.carousel-control.right { right: 16px; }
+
+.carousel-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  pointer-events: none;
+}
+
+.carousel-title {
+  font-size: clamp(20px, 2.4vw, 36px);
+  margin-bottom: 0.25rem;
+  font-weight: 700;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  animation: fadeInDown 0.8s ease-out;
+}
+
+.carousel-place {
+  font-size: clamp(18px, 1.6vw, 28px);
+  margin: 0.25rem 0;
+  font-weight: 600;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  animation: fadeInDown 0.8s ease-out 0.2s both;
+}
+
+.carousel-short {
+  display: none;
+  animation: fadeInDown 0.8s ease-out 0.4s both;
+}
+
+.carousel-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+  background: linear-gradient(135deg, #b95a57 0%, #d47a77 100%);
+  color: white;
+  padding: 1rem 2.25rem;
+  border-radius: 50px;
+  text-decoration: none;
+  pointer-events: auto;
+  font-weight: 600;
+  font-size: 1.1rem;
+  box-shadow: 0 6px 20px rgba(185, 90, 87, 0.5), 0 0 0 0 rgba(185, 90, 87, 0.7);
+  transition: all 0.3s ease;
+  animation: fadeInUp 0.8s ease-out 0.6s both, pulseGlow 2s ease-in-out infinite 1.4s;
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.carousel-cta:hover::before {
+  left: 100%;
+}
+
+.carousel-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(185, 90, 87, 0.6), 0 0 0 4px rgba(185, 90, 87, 0.2);
+}
+
+.carousel-cta:active {
+  transform: translateY(-1px);
+}
+
+.carousel-cta svg {
+  transition: transform 0.3s ease;
+}
+
+.carousel-cta:hover svg {
+  transform: translateX(4px);
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 6px 20px rgba(185, 90, 87, 0.5), 0 0 0 0 rgba(185, 90, 87, 0.7);
+  }
+  50% {
+    box-shadow: 0 6px 25px rgba(185, 90, 87, 0.7), 0 0 0 4px rgba(185, 90, 87, 0.3);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.95);
+  color: #333;
+  border: none;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.carousel-control:hover {
+  background: white;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.carousel-control:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.carousel-control svg {
+  transition: transform 0.3s ease;
+}
+
+.carousel-control.left {
+  left: 24px;
+}
+
+.carousel-control.left:hover svg {
+  transform: translateX(-2px);
+}
+
+.carousel-control.right {
+  right: 24px;
+}
+
+.carousel-control.right:hover svg {
+  transform: translateX(2px);
+}
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.carousel-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid white;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-indicator:hover {
+  background: rgba(255, 255, 255, 0.5);
+  transform: scale(1.2);
+}
+
+.carousel-indicator.active {
+  background: white;
+  width: 28px;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.5);
+}
+
+/* Tablette */
+@media (max-width: 1024px) {
+  .carousel-control {
+    width: 52px;
+    height: 52px;
+  }
+  
+  .carousel-control.left {
+    left: 20px;
+  }
+  
+  .carousel-control.right {
+    right: 20px;
+  }
+  
+  .carousel-title {
+    font-size: clamp(22px, 2.2vw, 32px);
+  }
+  
+  .carousel-place {
+    font-size: clamp(16px, 1.5vw, 24px);
+  }
+}
 
 @media (min-width: 900px) {
-  .carousel-short { display: block; max-width: 60%; margin-top: 0.4rem; opacity: 0.95; }
+  .carousel-short {
+    display: block;
+    max-width: 60%;
+    margin-top: 0.4rem;
+    opacity: 0.95;
+  }
+  
+  .carousel-control {
+    width: 64px;
+    height: 64px;
+  }
+  
+  .carousel-control.left {
+    left: 32px;
+  }
+  
+  .carousel-control.right {
+    right: 32px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .carousel-image {
+    height: clamp(220px, 35vh, 280px);
+  }
+  
+  .carousel-control {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .carousel-control svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .carousel-control.left {
+    left: 8px;
+  }
+  
+  .carousel-control.right {
+    right: 8px;
+  }
+  
+  .carousel-title {
+    font-size: clamp(16px, 5vw, 20px);
+    margin-bottom: 0.15rem;
+    padding: 0 1rem;
+  }
+  
+  .carousel-place {
+    font-size: clamp(14px, 4vw, 18px);
+    margin: 0.15rem 0;
+    padding: 0 1rem;
+  }
+  
+  .carousel-short {
+    display: none;
+  }
+  
+  .carousel-cta {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+    margin-top: 0.875rem;
+    border-radius: 40px;
+  }
+  
+  .carousel-cta svg {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .carousel-indicators {
+    bottom: 10px;
+    gap: 6px;
+  }
+  
+  .carousel-indicator {
+    width: 7px;
+    height: 7px;
+  }
+  
+  .carousel-indicator.active {
+    width: 20px;
+  }
+}
+
+/* Très petit mobile */
+@media (max-width: 400px) {
+  .carousel-image {
+    height: clamp(220px, 35vh, 280px);
+  }
+  
+  .carousel-control {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .carousel-control svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .carousel-control.left {
+    left: 8px;
+  }
+  
+  .carousel-control.right {
+    right: 8px;
+  }
+  
+  .carousel-title {
+    font-size: clamp(16px, 5vw, 20px);
+  }
+  
+  .carousel-place {
+    font-size: clamp(14px, 4vw, 18px);
+  }
+  
+  .carousel-cta {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.95rem;
+  }
 }
 

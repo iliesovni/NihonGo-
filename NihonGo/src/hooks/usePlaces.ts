@@ -98,6 +98,93 @@ interface SearchFilters {
 
 type SortOption = "popularity_desc" | "alphabetical_asc" | "alphabetical_desc" | "price_asc" | "price_desc";
 
+export interface PlaceWithScore extends Place {
+  matchScore?: number;
+}
+
+// Fonction pour calculer la distance de Levenshtein
+function levenshteinDistance(str1: string, str2: string): number {
+  const m = str1.length;
+  const n = str2.length;
+  const dp: number[][] = Array(m + 1).fill(null).map(() => Array(n + 1).fill(0));
+
+  for (let i = 0; i <= m; i++) dp[i][0] = i;
+  for (let j = 0; j <= n; j++) dp[0][j] = j;
+
+  for (let i = 1; i <= m; i++) {
+    for (let j = 1; j <= n; j++) {
+      if (str1[i - 1] === str2[j - 1]) {
+        dp[i][j] = dp[i - 1][j - 1];
+      } else {
+        dp[i][j] = Math.min(
+          dp[i - 1][j] + 1,     // deletion
+          dp[i][j - 1] + 1,     // insertion
+          dp[i - 1][j - 1] + 1  // substitution
+        );
+      }
+    }
+  }
+
+  return dp[m][n];
+}
+
+// Fonction pour calculer le score de similarité en pourcentage
+function calculateSimilarity(query: string, text: string): number {
+  const queryLower = query.toLowerCase().trim();
+  const textLower = text.toLowerCase().trim();
+
+  // Correspondance exacte
+  if (textLower === queryLower) return 100;
+
+  // Correspondance au début
+  if (textLower.startsWith(queryLower)) return 95;
+
+  // Correspondance contient
+  if (textLower.includes(queryLower)) return 85;
+
+  // Calcul de la distance de Levenshtein pour les mots individuels
+  const queryWords = queryLower.split(/\s+/);
+  const textWords = textLower.split(/\s+/);
+  
+  let bestMatch = 0;
+  
+  // Chercher la meilleure correspondance de mot
+  for (const qWord of queryWords) {
+    for (const tWord of textWords) {
+      if (tWord.includes(qWord) || qWord.includes(tWord)) {
+        bestMatch = Math.max(bestMatch, 80);
+      } else {
+        const distance = levenshteinDistance(qWord, tWord);
+        const maxLen = Math.max(qWord.length, tWord.length);
+        if (maxLen > 0) {
+          const similarity = (1 - distance / maxLen) * 100;
+          bestMatch = Math.max(bestMatch, similarity);
+        }
+      }
+    }
+  }
+
+  // Calcul global avec Levenshtein
+  const globalDistance = levenshteinDistance(queryLower, textLower);
+  const maxLength = Math.max(queryLower.length, textLower.length);
+  const globalSimilarity = maxLength > 0 ? (1 - globalDistance / maxLength) * 100 : 0;
+
+  // Prendre le meilleur score entre correspondance de mots et correspondance globale
+  return Math.max(bestMatch, globalSimilarity);
+}
+
+// Fonction pour calculer le score de correspondance pour un lieu
+function calculatePlaceMatchScore(query: string, place: Place): number {
+  const queryLower = query.toLowerCase().trim();
+  
+  // Poids différents pour différents champs
+  const nameScore = calculateSimilarity(queryLower, place.name) * 0.5;
+  const shortDescScore = calculateSimilarity(queryLower, place.shortDescription) * 0.3;
+  const descScore = calculateSimilarity(queryLower, place.description) * 0.2;
+
+  return nameScore + shortDescScore + descScore;
+}
+
 export function useSearchPlaces() {
   const [query, setQuery] = useState("");
   const [filters, setFilters] = useState<SearchFilters>({
@@ -110,18 +197,9 @@ export function useSearchPlaces() {
   const [sortBy, setSortBy] = useState<SortOption>("popularity_desc");
 
   const results = useMemo(() => {
-    let items = [...dataset.places];
+    let items: PlaceWithScore[] = [...dataset.places];
 
-    if (query.trim()) {
-      const q = query.toLowerCase();
-      items = items.filter(
-        (p) =>
-          p.name.toLowerCase().includes(q) ||
-          p.shortDescription.toLowerCase().includes(q) ||
-          p.description.toLowerCase().includes(q)
-      );
-    }
-
+    // Appliquer les filtres
     if (filters.region) items = items.filter((p) => p.regionId === Number(filters.region));
     if (filters.city) items = items.filter((p) => p.cityId === Number(filters.city));
     if (filters.type) items = items.filter((p) => p.typeId === Number(filters.type));
@@ -143,22 +221,68 @@ export function useSearchPlaces() {
       }
     }
 
-    switch (sortBy) {
-      case "popularity_desc":
-        items.sort((a, b) => b.popularity - a.popularity);
-        break;
-      case "price_asc":
-        items.sort((a, b) => (Number(a.price ?? 0) - Number(b.price ?? 0)));
-        break;
-      case "price_desc":
-        items.sort((a, b) => (Number(b.price ?? 0) - Number(a.price ?? 0)));
-        break;
-      case "alphabetical_asc":
-        items.sort((a, b) => a.name.localeCompare(b.name));
-        break;
-      case "alphabetical_desc":
-        items.sort((a, b) => b.name.localeCompare(a.name));
-        break;
+    // Si une requête de recherche existe, calculer les scores de similarité
+    if (query.trim()) {
+      items = items.map((place) => ({
+        ...place,
+        matchScore: calculatePlaceMatchScore(query, place)
+      }));
+
+      // Filtrer les résultats avec un score minimum (par exemple 30% de similarité)
+      // Cela permet d'afficher même les résultats avec des fautes de frappe
+      items = items.filter((p) => (p.matchScore ?? 0) >= 30);
+    } else {
+      // Si pas de recherche, pas de score
+      items = items.map((place) => ({ ...place, matchScore: undefined }));
+    }
+
+    // Trier les résultats
+    if (query.trim()) {
+      // Si recherche active, trier d'abord par score de similarité (décroissant)
+      items.sort((a, b) => {
+        const scoreA = a.matchScore ?? 0;
+        const scoreB = b.matchScore ?? 0;
+        
+        // Trier principalement par score de similarité
+        if (Math.abs(scoreA - scoreB) > 2) {
+          return scoreB - scoreA;
+        }
+        
+        // En cas d'égalité de score, utiliser le tri sélectionné comme critère secondaire
+        switch (sortBy) {
+          case "popularity_desc":
+            return b.popularity - a.popularity;
+          case "price_asc":
+            return Number(a.price ?? 0) - Number(b.price ?? 0);
+          case "price_desc":
+            return Number(b.price ?? 0) - Number(a.price ?? 0);
+          case "alphabetical_asc":
+            return a.name.localeCompare(b.name);
+          case "alphabetical_desc":
+            return b.name.localeCompare(a.name);
+          default:
+            return b.popularity - a.popularity;
+        }
+      });
+    } else {
+      // Si pas de recherche, utiliser le tri normal
+      switch (sortBy) {
+        case "popularity_desc":
+          items.sort((a, b) => b.popularity - a.popularity);
+          break;
+        case "price_asc":
+          items.sort((a, b) => (Number(a.price ?? 0) - Number(b.price ?? 0)));
+          break;
+        case "price_desc":
+          items.sort((a, b) => (Number(b.price ?? 0) - Number(a.price ?? 0)));
+          break;
+        case "alphabetical_asc":
+          items.sort((a, b) => a.name.localeCompare(b.name));
+          break;
+        case "alphabetical_desc":
+          items.sort((a, b) => b.name.localeCompare(a.name));
+          break;
+      }
     }
 
     return items;
@@ -169,6 +293,98 @@ export function useSearchPlaces() {
   }, []);
 
   const setPrice = (price: string | "") => setFilters((f) => ({ ...f, price }));
+
+  // Fonction pour calculer les résultats avec des filtres hypothétiques
+  const getResultsWithFilters = useCallback((hypotheticalFilters: Partial<SearchFilters>) => {
+    let items = [...dataset.places];
+
+    if (query.trim()) {
+      const q = query.toLowerCase();
+      items = items.filter(
+        (p) =>
+          p.name.toLowerCase().includes(q) ||
+          p.shortDescription.toLowerCase().includes(q) ||
+          p.description.toLowerCase().includes(q)
+      );
+    }
+
+    const testFilters = { ...filters, ...hypotheticalFilters };
+
+    if (testFilters.region) items = items.filter((p) => p.regionId === Number(testFilters.region));
+    if (testFilters.city) items = items.filter((p) => p.cityId === Number(testFilters.city));
+    if (testFilters.type) items = items.filter((p) => p.typeId === Number(testFilters.type));
+    if (testFilters.tag) items = items.filter((p) => p.tags.includes(Number(testFilters.tag)));
+    if (testFilters.price) {
+      switch (testFilters.price) {
+        case 'free':
+          items = items.filter((p) => Number(p.price ?? 0) === 0);
+          break;
+        case 'low':
+          items = items.filter((p) => Number(p.price ?? 0) > 0 && Number(p.price ?? 0) <= 500);
+          break;
+        case 'mid':
+          items = items.filter((p) => Number(p.price ?? 0) > 500 && Number(p.price ?? 0) <= 1500);
+          break;
+        case 'high':
+          items = items.filter((p) => Number(p.price ?? 0) > 1500);
+          break;
+      }
+    }
+
+    return items;
+  }, [query, filters]);
+
+  // Calculer quelles options de filtres sont disponibles
+  const availableOptions = useMemo(() => {
+    const available: {
+      types: Set<number>;
+      cities: Set<number>;
+      prices: Set<string>;
+    } = {
+      types: new Set(),
+      cities: new Set(),
+      prices: new Set(),
+    };
+
+    // Vérifier chaque type
+    allTypes.forEach((type) => {
+      // Si c'est le type actuel, il est toujours disponible (car il est déjà sélectionné)
+      if (filters.type === type.id) {
+        available.types.add(type.id);
+      } else {
+        // Tester avec ce type hypothétique (remplace le type actuel)
+        const testResults = getResultsWithFilters({ type: type.id });
+        if (testResults.length > 0) {
+          available.types.add(type.id);
+        }
+      }
+    });
+
+    // Vérifier chaque ville (en excluant la ville actuelle)
+    allCities.forEach((city) => {
+      const testResults = getResultsWithFilters({ city: city.id });
+      // Si c'est la ville actuelle, elle est toujours disponible
+      if (filters.city === city.id) {
+        available.cities.add(city.id);
+      } else if (testResults.length > 0) {
+        available.cities.add(city.id);
+      }
+    });
+
+    // Vérifier chaque prix (en excluant le prix actuel)
+    const priceOptions = ['free', 'low', 'mid', 'high'];
+    priceOptions.forEach((priceOption) => {
+      const testResults = getResultsWithFilters({ price: priceOption });
+      // Si c'est le prix actuel, il est toujours disponible
+      if (filters.price === priceOption) {
+        available.prices.add(priceOption);
+      } else if (testResults.length > 0) {
+        available.prices.add(priceOption);
+      }
+    });
+
+    return available;
+  }, [getResultsWithFilters, filters]);
 
   return {
     query,
@@ -189,6 +405,7 @@ export function useSearchPlaces() {
     setSortBy,
     results,
     total: results.length,
+    availableOptions,
   };
 }
 

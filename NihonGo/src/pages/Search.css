@@ -1,12 +1,241 @@
-.search-page { max-width: 1200px; margin: 1.5rem auto; padding: 0 1rem; }
-.search-controls { display:flex; flex-direction:column; gap:1rem; }
-.search-input { width: 100%; padding: 0.9rem 1rem; border-radius: 8px; border: 1px solid #ddd; box-shadow: none; }
-.filters { display:flex; gap:1rem; margin-top:0.5rem; flex-wrap:wrap; }
-.filters label { display:flex; flex-direction:column; gap:0.4rem; font-size:0.9rem; }
-.filters select { padding:0.5rem 0.6rem; border-radius:6px; border:1px solid #ddd; }
-.results-count { margin:1rem 0; color:#444; }
-.results-grid { display:flex; gap:1rem; flex-wrap:wrap; }
+.search-page {
+  max-width: 1200px;
+  margin: 1.5rem auto;
+  padding: 0 1rem;
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.search-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  animation: slideDown 0.6s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border-radius: 12px;
+  border: 2px solid #ddd;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #b95a57;
+  box-shadow: 0 4px 12px rgba(185, 90, 87, 0.15);
+  transform: translateY(-2px);
+}
+
+.filters {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+  animation: fadeIn 0.8s ease-out 0.2s both;
+}
+
+.filters label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #555;
+}
+
+.filters select {
+  padding: 0.6rem 0.8rem;
+  border-radius: 8px;
+  border: 2px solid #ddd;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.filters select:hover:not(:disabled) {
+  border-color: #b95a57;
+  box-shadow: 0 2px 8px rgba(185, 90, 87, 0.1);
+}
+
+.filters select:focus {
+  outline: none;
+  border-color: #b95a57;
+  box-shadow: 0 4px 12px rgba(185, 90, 87, 0.15);
+}
+
+.filters select option.disabled-option,
+.filters select option:disabled {
+  color: #bbb;
+  background-color: #f5f5f5;
+  font-style: italic;
+  cursor: not-allowed;
+}
+
+.filters select option:not(:disabled) {
+  color: #333;
+  background-color: white;
+}
+
+.results-count {
+  margin: 1.5rem 0 1rem;
+  color: #444;
+  font-weight: 600;
+  font-size: 1.1rem;
+  animation: fadeIn 0.6s ease-out 0.4s both;
+}
+
+.results-grid {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+/* Tablette */
+@media (max-width: 1024px) {
+  .search-page {
+    padding: 0 1.5rem;
+  }
+  
+  .filters {
+    gap: 0.875rem;
+  }
+  
+  .filters label {
+    flex: 1 1 calc(50% - 0.5rem);
+    min-width: 200px;
+  }
+  
+  .results-grid {
+    gap: 1.25rem;
+  }
+}
 
 @media (max-width: 900px) {
-  .filters { flex-direction:column; }
+  .search-page {
+    padding: 0 1rem;
+    margin: 1rem auto;
+  }
+  
+  .search-controls {
+    gap: 0.875rem;
+  }
+  
+  .search-input {
+    padding: 0.85rem 0.95rem;
+    font-size: 0.95rem;
+  }
+  
+  .filters {
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+  }
+  
+  .filters label {
+    flex: 1 1 100%;
+    min-width: 100%;
+  }
+  
+  .filters select {
+    width: 100%;
+    padding: 0.65rem 0.85rem;
+  }
+  
+  .results-count {
+    margin: 1.25rem 0 0.875rem;
+    font-size: 1rem;
+  }
+  
+  .results-grid {
+    gap: 1rem;
+    justify-content: center;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .search-page {
+    padding: 0 0.75rem;
+    margin: 0.75rem auto;
+  }
+  
+  .search-input {
+    padding: 0.75rem 0.875rem;
+    font-size: 0.9rem;
+    border-radius: 10px;
+  }
+  
+  .filters {
+    gap: 0.625rem;
+  }
+  
+  .filters label {
+    font-size: 0.85rem;
+  }
+  
+  .filters select {
+    padding: 0.6rem 0.75rem;
+    font-size: 0.85rem;
+    border-radius: 6px;
+  }
+  
+  .results-count {
+    font-size: 0.95rem;
+    margin: 1rem 0 0.75rem;
+  }
+  
+  .results-grid {
+    gap: 0.875rem;
+  }
+}
+
+/* Très petit mobile */
+@media (max-width: 400px) {
+  .search-page {
+    padding: 0 0.5rem;
+  }
+  
+  .search-input {
+    padding: 0.7rem 0.8rem;
+    font-size: 0.875rem;
+  }
+  
+  .filters label {
+    font-size: 0.8rem;
+    gap: 0.3rem;
+  }
+  
+  .filters select {
+    padding: 0.55rem 0.7rem;
+    font-size: 0.8rem;
+  }
+  
+  .results-count {
+    font-size: 0.9rem;
+  }
 }

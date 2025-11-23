@@ -35,6 +35,14 @@ html, body { overflow-x: hidden; }
 /* Reserve space for fixed navbar */
 body { padding-top: 86px; }
 
+@media (max-width: 600px) {
+  body { padding-top: 74px; }
+}
+
+@media (max-width: 400px) {
+  body { padding-top: 70px; }
+}
+
 h1 {
   font-size: 3.2em;
   line-height: 1.1;

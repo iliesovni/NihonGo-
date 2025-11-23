@@ -4,7 +4,6 @@
     { "id": 2, "nom": "Kansai" },
     { "id": 3, "nom": "Chūgoku" }
   ],
-
   "villes": [
     { "id": 1, "nom": "Tokyo", "region_id": 1 },
     { "id": 2, "nom": "Kyoto", "region_id": 2 },
@@ -12,7 +11,6 @@
     { "id": 4, "nom": "Nara", "region_id": 2 },
     { "id": 5, "nom": "Hiroshima", "region_id": 3 }
   ],
-
   "types": [
     { "id": 1, "nom": "Temple / Sanctuaire" },
     { "id": 2, "nom": "Quartier historique" },
@@ -22,7 +20,6 @@
     { "id": 6, "nom": "Château / Patrimoine" },
     { "id": 7, "nom": "Tour / Panorama" }
   ],
-
   "tags": [
     { "id": 1, "nom": "Gratuit" },
     { "id": 2, "nom": "Très populaire" },
@@ -32,7 +29,6 @@
     { "id": 6, "nom": "Traditionnel" },
     { "id": 7, "nom": "Moderne" }
   ],
-
   "lieux": [
     {
       "id": 1,
@@ -42,7 +38,7 @@
       "tags": [2, 4, 6],
       "prix": 500,
       "popularite": 98,
-      "description": "Temple zen recouvert de feuilles d’or, l’un des plus célèbres de Kyoto.",
+      "description": "Le Pavillon d’or, ou Kinkaku-ji, est l’image la plus emblématique de Kyoto. Ce temple zen bouddhiste, dont les deux étages supérieurs sont recouverts de feuilles d’or pur, se reflète magnifiquement dans l’étang Kyōko-chi, créant un tableau d’une beauté presque irréelle, surtout au lever ou au coucher du soleil. Construit en 1397 comme villa de retraite du shogun Ashikaga Yoshimitsu, il fut converti en temple après sa mort conformément à ses dernières volontés.\n\nChaque étage représente un style architectural différent : le rez-de-chaussée de style shinden (palais aristocratique Heian), le premier étage de style buke (résidence de samouraï) et le dernier de style zen avec son phoenix doré au sommet. Le jardin japonais qui l’entoure a été conçu pour être admiré depuis différents points de vue, offrant une harmonie parfaite entre l’architecture et la nature.\n\nClassé au patrimoine mondial de l’UNESCO, Kinkaku-ji attire des millions de visiteurs chaque année, mais conserve malgré la foule une atmosphère de sérénité et de contemplation. C’est un lieu incontournable pour comprendre l’esthétique raffinée de l’époque Muromachi.",
       "horaires": "09:00-17:00",
       "duree": "1h",
       "image_url": "img/kinkakuji.jpg"
@@ -55,7 +51,7 @@
       "tags": [1, 2, 6],
       "prix": 0,
       "popularite": 100,
-      "description": "Sanctuaire aux milliers de torii rouges sur le mont Inari.",
+      "description": "Fushimi Inari Taisha est le sanctuaire shinto principal dédié à Inari, divinité du riz, de l’agriculture, de l’industrie et de la prospérité. Ce qui le rend mondialement célèbre, ce sont ses milliers de torii vermillon qui forment des tunnels infinis le long des sentiers menant au sommet du mont Inari (233 m).\n\nChaque torii a été offert par une entreprise ou un particulier en échange d’une bénédiction : plus l’entreprise prospère, plus le torii est imposant. La randonnée complète jusqu’au sommet dure environ 2 à 3 heures, mais même les premiers 500 mètres sous les torii offrent une expérience magique et photogénique.\n\nOuvert 24 h/24 et entièrement gratuit, c’est l’un des rares sites majeurs où l’on peut profiter d’une ambiance mystique très tôt le matin ou tard le soir, loin de la foule. La brume matinale ou les lumières des lanternes de pierre ajoutent encore à la féérie du lieu.",
       "horaires": "24h/24",
       "duree": "2h",
       "image_url": "img/fushimi_inari.jpg"
@@ -68,7 +64,7 @@
       "tags": [2, 4, 6],
       "prix": 400,
       "popularite": 95,
-      "description": "Temple iconique avec plateforme en bois dominant Kyoto.",
+      "description": "Kiyomizu-dera (« temple de l’eau pure ») est célèbre pour son immense terrasse en bois suspendue à 13 mètres au-dessus de la vallée, soutenue par des centaines de piliers sans un seul clou. Cette plateforme offre une vue panoramique imprenable sur Kyoto, particulièrement spectaculaire pendant les cerisiers en fleurs ou les érables rouges d’automne.\n\nFondé en 778, le temple abrite une cascade sacrée Otowa divisée en trois filets d’eau symbolisant longévité, succès scolaire et amour. À l’époque d’Edo, sauter de la terrasse était censé exaucer un vœu (85 % de survie, l’expérience est aujourd’hui interdite !).\n\nLes illuminations nocturnes au printemps et en automne transforment le site en un spectacle féérique. Avec ses ruelles pavées de Sannenzaka et Ninnenzaka remplies de boutiques traditionnelles, Kiyomizu-dera est une étape incontournable pour ressentir l’âme ancienne de Kyoto.",
       "horaires": "06:00-18:00",
       "duree": "1h30",
       "image_url": "img/kiyomizudera.jpg"
@@ -81,7 +77,7 @@
       "tags": [1, 3],
       "prix": 0,
       "popularite": 92,
-      "description": "Célèbre forêt de bambous géants.",
+      "description": "Arashiyama est surtout connu pour sa célèbre forêt de bambous géants qui forme une allée verte d’une hauteur impressionnante, où le vent crée une mélodie apaisante. Ce quartier à l’ouest de Kyoto offre également la rivière Hozu, le pont Togetsukyo et de nombreux temples cachés.\n\nLa balade dans la bambouseraie est courte mais inoubliable : les tiges de bambou de plus de 20 mètres de haut filtrent la lumière du soleil et donnent une impression d’être dans un autre monde. En dehors de la forêt, on peut louer un bateau ou faire une promenade en rickshaw pour découvrir les rives paisibles.\n\nArashiyama est particulièrement magique au printemps avec les cerisiers ou en automne avec les momiji rouges. Gratuit la majeure partie du temps, c’est un endroit idéal pour les familles et pour échapper à l’agitation du centre de Kyoto.",
       "horaires": "24h/24",
       "duree": "1h",
       "image_url": "img/arashiyama.jpg"
@@ -94,7 +90,7 @@
       "tags": [4],
       "prix": 800,
       "popularite": 88,
-      "description": "Ancienne résidence des shoguns Tokugawa.",
+      "description": "Le château de Nijo, construit en 1603, fut la résidence officielle des shoguns Tokugawa à Kyoto. Il est célèbre pour ses « planchers rossignols » (uguisubari) qui grincent intentionnellement pour signaler la présence d’intrus, une ingénieuse mesure de sécurité.\n\nLes vastes jardins et les magnifiques peintures sur les portes coulissantes (fusuma) réalisées par l’école Kanō témoignent du luxe de l’époque. Le palais Ninomaru, avec ses six bâtiments interconnectés, est un chef-d’œuvre d’architecture résidentielle shogunale.\n\nClassé au patrimoine mondial de l’UNESCO, le château est un témoignage précieux de la période Edo et du pouvoir des Tokugawa. La visite est calme et instructive, parfaite pour comprendre l’histoire politique du Japon.",
       "horaires": "08:45-17:00",
       "duree": "1h30",
       "image_url": "img/nijo.jpg"
@@ -107,7 +103,7 @@
       "tags": [1, 2, 6],
       "prix": 0,
       "popularite": 99,
-      "description": "Temple le plus ancien de Tokyo.",
+      "description": "Senso-ji est le plus ancien temple bouddhiste de Tokyo, fondé en 645. Selon la légende, deux pêcheurs y auraient trouvé une statuette de Kannon qu’ils remirent à l’eau à plusieurs reprises avant qu’elle ne revienne toujours, signe qu’un temple devait être construit.\n\nLa porte Kaminarimon avec sa gigantesque lanterne rouge, la rue commerçante Nakamise-dori pleine de souvenirs et de douceurs traditionnelles, et la pagode à cinq étages font de Senso-ji un lieu vivant et coloré, jour et nuit.\n\nGratuit et ouvert très tôt, c’est le cœur spirituel et touristique d’Asakusa. Même bondé, le temple conserve une atmosphère joyeuse et populaire qui contraste avec la Tokyo moderne.",
       "horaires": "06:00-17:00",
       "duree": "1h",
       "image_url": "img/sensoji.jpg"
@@ -120,7 +116,7 @@
       "tags": [2, 5, 7],
       "prix": 2100,
       "popularite": 97,
-      "description": "Plus haute tour du Japon.",
+      "description": "Inaugurée en 2012, la Tokyo Skytree est la plus haute tour du monde (634 m). Ses deux observatoires à 350 m et 450 m offrent une vue à 360° sur Tokyo et, par temps clair, jusqu’au mont Fuji.\n\nLe design futuriste de la tour s’inspire des techniques traditionnelles japonaises de construction antisismique. Au pied de la tour, le complexe Solamachi regroupe un aquarium, des boutiques et des restaurants.\n\nLe soir, la tour s’illumine de couleurs changeantes et devient un symbole de la Tokyo moderne. C’est l’endroit idéal pour comprendre l’immensité de la mégalopole japonaise.",
       "horaires": "10:00-21:00",
       "duree": "1h30",
       "image_url": "img/skytree.jpg"
@@ -133,7 +129,7 @@
       "tags": [3],
       "prix": 500,
       "popularite": 94,
-      "description": "Grand parc calme au cœur de Shinjuku.",
+      "description": "Shinjuku Gyoen est l’une des plus belles oasis de calme au cœur de Tokyo. Ancien jardin impérial, il combine trois styles : jardin japonais traditionnel avec étang et pavillon de thé, jardin à la française avec roseraie, et jardin à l’anglaise paysager.\n\nC’est l’un des meilleurs endroits de Tokyo pour le hanami (observation des cerisiers) au printemps, avec plus de 1 000 arbres de 65 variétés différentes. En automne, les ginkgos dorés sont tout aussi spectaculaires.\n\nMalgré sa popularité, le parc reste paisible et interdit l’alcool pendant le hanami, ce qui le distingue des autres lieux festifs. Idéal pour une pause zen entre deux visites urbaines.",
       "horaires": "09:00-18:00",
       "duree": "1h30",
       "image_url": "img/shinjuku_gyoen.jpg"
@@ -146,7 +142,7 @@
       "tags": [1, 6],
       "prix": 0,
       "popularite": 90,
-      "description": "Grand sanctuaire dans une forêt urbaine.",
+      "description": "Meiji Jingu est un grand sanctuaire shinto dédié à l’empereur Meiji et à l’impératrice Shoken, les souverains qui ont modernisé le Japon à la fin du XIXe siècle. Entouré d’une forêt de 100 000 arbres offerts du monde entier, il offre une impressionnante bulle de nature en plein Tokyo.\n\nLa grande porte torii en cyprès de 1 700 ans et le chemin de gravier bordé d’arbres centenaires créent une atmosphère solennelle et purificatrice. Le sanctuaire est particulièrement fréquenté le 1er janvier pour le hatsumode (première visite de l’année).\n\nGratuit et ouvert dès l’aube, c’est un lieu de recueillement où l’on peut assister à des cérémonies shinto et écrire ses vœux sur des ema.",
       "horaires": "05:00-18:00",
       "duree": "1h",
       "image_url": "img/meiji.jpg"
@@ -159,7 +155,7 @@
       "tags": [7],
       "prix": 0,
       "popularite": 93,
-      "description": "Quartier emblématique de l’électronique et des anime.",
+      "description": "Akihabara, surnommée « Akiba », est le quartier mondialement connu de la culture otaku : manga, anime, jeux vidéo, figurines et électronique. Les enseignes lumineuses, les maid cafés et les arcades rétro en font un lieu unique et déjanté.\n\nAutrefois marché noir d’électronique après la guerre, Akihabara est devenue la Mecque des passionnés de pop culture japonaise. On y trouve des boutiques sur 8 étages dédiées à un seul personnage ou série.\n\nLe soir, les néons s’allument et l’ambiance devient encore plus électrique. C’est un quartier qui ne dort jamais et qui fascine autant qu’il déroute les visiteurs non-initiés.",
       "horaires": "24h/24",
       "duree": "2h",
       "image_url": "img/akihabara.jpg"
@@ -172,7 +168,7 @@
       "tags": [4],
       "prix": 600,
       "popularite": 90,
-      "description": "Château historique entouré d’un parc.",
+      "description": "Le château d’Osaka, construit en 1583 par Toyotomi Hideyoshi, fut le plus grand château du Japon à l’époque et le symbole de son pouvoir. Détruit et reconstruit plusieurs fois, le donjon actuel date de 1931 mais reste fidèle à l’original.\n\nEntouré de douves impressionnantes et d’un immense parc, il est particulièrement beau au printemps avec ses 600 cerisiers. Le musée à l’intérieur retrace l’histoire mouvementée de Hideyoshi et des guerres de l’époque Sengoku.\n\nDu 8e étage, la vue panoramique sur Osaka est splendide. C’est un lieu emblématique pour comprendre l’histoire des samouraïs et l’âme d’Osaka.",
       "horaires": "09:00-17:00",
       "duree": "1h30",
       "image_url": "img/osaka_castle.jpg"
@@ -185,7 +181,7 @@
       "tags": [2, 7],
       "prix": 0,
       "popularite": 98,
-      "description": "Quartier animé, street-food et néons.",
+      "description": "Dotonbori est le cœur battant de la vie nocturne et gastronomique d’Osaka. Néons géants (dont le célèbre crabe Kani Doraku en mouvement), enseignes 3D et foule joyeuse en font un spectacle permanent.\n\nC’est ici que l’on vient manger les spécialités locales : takoyaki, okonomiyaki, kushikatsu… La devise d’Osaka « kuidaore » (manger jusqu’à la ruine) prend tout son sens !\n\nLe canal, les ponts illuminés et l’ambiance décomplexée résument parfaitement le caractère chaleureux et extraverti des habitants d’Osaka. Un passage obligatoire le soir.",
       "horaires": "24h/24",
       "duree": "2h",
       "image_url": "img/dotonbori.jpg"
@@ -198,7 +194,7 @@
       "tags": [5, 7],
       "prix": 1500,
       "popularite": 87,
-      "description": "Observatoire panoramique futuriste.",
+      "description": "L’Umeda Sky Building, avec ses deux tours reliées au sommet par l’« Observatoire flottant du jardin » à 173 m, est l’un des bâtiments les plus emblématiques d’Osaka. Son design futuriste des années 90 reste impressionnant.\n\nL’observatoire en plein air offre une vue à 360° sur la ville, et l’escalator transparent qui traverse le vide entre les deux tours procure une sensation vertigineuse unique.\n\nAu coucher du soleil, la vue devient magique avec les lumières qui s’allument progressivement. Un lieu romantique et moins bondé que les tours de Tokyo.",
       "horaires": "09:30-22:30",
       "duree": "1h",
       "image_url": "img/umeda.jpg"
@@ -211,7 +207,7 @@
       "tags": [6, 4],
       "prix": 300,
       "popularite": 82,
-      "description": "L’un des plus anciens temples du Japon.",
+      "description": "Shitenno-ji est considéré comme le premier temple bouddhiste officiellement fondé au Japon, en 593, par le prince Shotoku, grand promoteur du bouddhisme. Bien que reconstruit plusieurs fois, il conserve son plan d’origine.\n\nLe trésor du temple abrite des œuvres d’art exceptionnelles, et la pagode à cinq étages est particulièrement élégante. Le jardin Gokuraku-jodo offre un havre de paix au milieu de la ville.\n\nMoins touristique que d’autres sites, Shitenno-ji permet une visite calme et authentique, avec parfois des marchés aux puces dans l’enceinte.",
       "horaires": "08:30-16:30",
       "duree": "1h",
       "image_url": "img/shitennoji.jpg"
@@ -224,7 +220,7 @@
       "tags": [3],
       "prix": 2400,
       "popularite": 94,
-      "description": "L’un des plus grands aquariums du monde.",
+      "description": "L’aquarium Kaiyukan est l’un des plus grands et des plus spectaculaires du monde. Son immense bassin central de 9 mètres de profondeur abrite deux requins-baleines, des raies manta et des milliers de poissons du Pacifique.\n\nLa visite suit une spirale descendante sur 8 étages, reproduisant différents écosystèmes marins : forêt japonaise, Antarctique, mer de Tasmanie… Les loutres de mer et les méduses sont particulièrement adorées des enfants.\n\nSitué dans la baie d’Osaka, avec une grande roue juste à côté, c’est une sortie idéale en famille, même par temps de pluie.",
       "horaires": "10:00-20:00",
       "duree": "2h",
       "image_url": "img/kaiyukan.jpg"
@@ -237,7 +233,7 @@
       "tags": [2, 4, 6],
       "prix": 600,
       "popularite": 97,
-      "description": "Temple géant abritant le Grand Bouddha.",
+      "description": "Le Todaiji abrite le Daibutsu, le Grand Bouddha de bronze de 15 mètres de haut, l’une des plus grandes statues du monde. Le bâtiment qui l’accueille, le Daibutsuden, est la plus grande construction en bois du monde, même s’il est 30 % plus petit que l’original.\n\nFondé en 743, le temple symbolisait le pouvoir impérial et la protection du pays. On peut passer à travers un trou dans un pilier (de la taille des narines du Bouddha) censé garantir l’illumination dans la prochaine vie.\n\nEntouré du parc aux daims, Todaiji est une expérience à la fois spirituelle, historique et ludique. Un incontournable absolu à Nara.",
       "horaires": "08:00-17:00",
       "duree": "1h30",
       "image_url": "img/todaiji.jpg"
@@ -250,7 +246,7 @@
       "tags": [1, 3],
       "prix": 0,
       "popularite": 96,
-      "description": "Parc célèbre pour ses daims.",
+      "description": "Le parc de Nara s’étend sur plus de 500 hectares et abrite environ 1 400 daims considérés comme des messagers divins depuis l’époque où Nara était la capitale. Les animaux se promènent librement et viennent manger dans la main des visiteurs.\n\nAu-delà des daims, le parc englobe les grands temples Todaiji et Kasuga Taisha, des étangs, des pelouses et des forêts. C’est un lieu de promenade très agréable où l’on oublie rapidement la ville.\n\nGratuit et ouvert toute l’année, c’est l’endroit parfait pour une journée en famille ou un pique-nique sous les cerisiers au printemps.",
       "horaires": "24h/24",
       "duree": "2h",
       "image_url": "img/nara_park.jpg"
@@ -263,7 +259,7 @@
       "tags": [6],
       "prix": 500,
       "popularite": 85,
-      "description": "Sanctuaire aux lanternes en pierre et bronze.",
+      "description": "Kasuga Taisha est célèbre pour ses centaines de lanternes en bronze et en pierre qui bordent les chemins et ornent le sanctuaire. Toutes sont allumées deux fois par an lors des festivals Mantoro, créant un spectacle magique.\n\nFondé en 768 par le clan Fujiwara, le sanctuaire est dédié aux divinités protectrices de la ville. Son vermillon vif contraste magnifiquement avec la forêt de cèdres qui l’entoure.\n\nL’ambiance est particulièrement mystique le matin ou en fin d’après-midi quand la lumière filtre à travers les arbres. Un lieu empreint de spiritualité shinto.",
       "horaires": "06:00-18:00",
       "duree": "1h",
       "image_url": "img/kasuga.jpg"
@@ -276,7 +272,7 @@
       "tags": [4],
       "prix": 0,
       "popularite": 80,
-      "description": "Temple avec pagode à cinq étages.",
+      "description": "Kofuku-ji, fondé en 669 par le clan Fujiwara, fut l’un des temples les plus puissants de l’époque de Nara. Sa pagode à cinq étages et sa pagode à trois étages sont devenues des symboles de la ville.\n\nLe musée du trésor national expose des statues bouddhiques exceptionnelles, dont le célèbre Ashura à trois visages et six bras, l’une des œuvres les plus émouvantes de l’art japonais.\n\nSitué au cœur du parc de Nara, le temple est souvent moins bondé que Todaiji et permet une visite plus contemplative.",
       "horaires": "09:00-17:00",
       "duree": "45min",
       "image_url": "img/kofukuji.jpg"
@@ -289,7 +285,7 @@
       "tags": [4],
       "prix": 700,
       "popularite": 78,
-      "description": "Musée de référence sur l’art bouddhique.",
+      "description": "Le Musée National de Nara possède l’une des plus belles collections d’art bouddhique du Japon, avec des statues, rouleaux peints et objets rituels datant des VIIIe-XIIIe siècles.\n\nLe bâtiment principal, moderne et élégant, contraste avec le pavillon historique en bois qui abrite les trésors permanents. Les expositions temporaires sont souvent exceptionnelles.\n\nC’est le lieu idéal pour comprendre l’importance de Nara comme berceau de la culture japonaise et admirer des œuvres classées trésors nationaux.",
       "horaires": "09:30-17:00",
       "duree": "1h",
       "image_url": "img/nara_museum.jpg"
@@ -302,8 +298,8 @@
       "tags": [4],
       "prix": 0,
       "popularite": 95,
-      "description": "Vestige du bombardement de 1945.",
-      "horaires": "08:30-18:00",
+      "description": "Le Dôme de la bombe atomique (Genbaku Dome) est le seul bâtiment resté debout près de l’hypocentre de l’explosion du 6 août 1945. Classé au patrimoine mondial de l’UNESCO, il est conservé en l’état comme témoignage de la tragédie.\n\nSa silhouette dévastée, avec ses murs éventrés et son squelette de fer, contraste avec la ville moderne reconstruite autour. Il symbolise à la fois la destruction et l’espoir de paix.\n\nLa visite est gratuite et émouvante, surtout au coucher du soleil quand le dôme s’illumine doucement. Un lieu de mémoire incontournable.",
+      "horaires": "24h/24",
       "duree": "45min",
       "image_url": "img/hiroshima_dome.jpg"
     },
@@ -315,7 +311,7 @@
       "tags": [4],
       "prix": 200,
       "popularite": 93,
-      "description": "Musée commémoratif d'Hiroshima.",
+      "description": "Le Mémorial de la Paix d’Hiroshima retrace avec une grande sobriété l’histoire de la bombe atomique et ses conséquences humaines. Photos, objets fondus, témoignages de survivants (hibakusha) et maquettes de la ville avant/après.\n\nLa visite est intense et bouleversante, mais porte un message universel de paix et de désarmement nucléaire. Le bâtiment, conçu par Kenzo Tange, est lui-même un chef-d’œuvre d’architecture moderne.\n\nÀ la sortie, la flamme de la paix et le cénotaphe avec les noms des victimes invitent au recueillement. Une expérience qui marque à vie.",
       "horaires": "08:30-18:00",
       "duree": "1h30",
       "image_url": "img/hiroshima_museum.jpg"
@@ -328,7 +324,7 @@
       "tags": [2],
       "prix": 0,
       "popularite": 99,
-      "description": "Île sacrée avec torii flottant.",
+      "description": "Miyajima est considérée comme l’une des trois plus belles vues du Japon. Son grand torii rouge semble flotter sur l’eau à marée haute, créant une image iconique du pays.\n\nL’île sacrée abrite le sanctuaire Itsukushima, des daims en liberté, des sentiers de randonnée et le mont Misen. On y accède en 10 minutes de ferry depuis Hiroshima.\n\nEntre nature, spiritualité et gastronomie (les huîtres et les momiji manju sont délicieux), Miyajima est une excursion d’une journée parfaite et inoubliable.",
       "horaires": "24h/24",
       "duree": "3h",
       "image_url": "img/miyajima.jpg"
@@ -341,7 +337,7 @@
       "tags": [6],
       "prix": 300,
       "popularite": 97,
-      "description": "Temple avec torii rouge dans la mer.",
+      "description": "Le sanctuaire Itsukushima, classé UNESCO, est construit sur pilotis pour que la mer entre dans ses bâtiments à marée haute, donnant l’impression qu’il flotte. Son grand torii rouge dans l’eau est l’un des symboles les plus photographiés du Japon.\n\nFondé au XIIe siècle, il est dédié aux trois déesses protectrices de la mer. Les couloirs vermillon et les lanternes créent une atmosphère unique, surtout au lever ou coucher du soleil.\n\nÀ marée basse, on peut marcher jusqu’au torii et voir les huîtres accrochées à ses piliers. Un lieu d’une beauté presque irréelle.",
       "horaires": "06:30-18:00",
       "duree": "1h",
       "image_url": "img/itsukushima.jpg"
@@ -354,7 +350,7 @@
       "tags": [5],
       "prix": 0,
       "popularite": 84,
-      "description": "Montagne sacrée avec vues panoramiques.",
+      "description": "Le mont Misen (535 m) est la montagne sacrée de Miyajima. On peut y monter à pied (1h30-2h) ou en téléphérique. Au sommet, la vue sur la mer intérieure de Seto et les îles est époustouflante.\n\nLe sentier passe par des temples, des rochers aux formes étranges et la flamme éternelle allumée par le moine Kobo Daishi il y a 1 200 ans (elle a servi à allumer la flamme de la paix à Hiroshima).\n\nEntre nature et spiritualité, c’est une randonnée accessible et très gratifiante, surtout par beau temps.",
       "horaires": "24h/24",
       "duree": "2h30",
       "image_url": "img/misen.jpg"
@@ -367,7 +363,7 @@
       "tags": [7, 2],
       "prix": 3200,
       "popularite": 99,
-      "description": "Expérience d’art numérique immersive.",
+      "description": "TeamLab Planets est une expérience d’art numérique immersive où l’on marche pieds nus dans l’eau, parmi des fleurs projetées qui réagissent au mouvement, des miroirs infinis et des lumières changeantes.\n\nChaque salle propose une interaction différente avec l’œuvre : on devient soi-même partie de l’installation. Les sensations sont à la fois visuelles, tactiles et sonores.\n\nTrès instagrammé, c’est une activité moderne et ludique qui plaît particulièrement aux jeunes et aux amateurs d’art contemporain.",
       "horaires": "10:00-20:00",
       "duree": "1h30",
       "image_url": "img/teamlab.jpg"
@@ -380,7 +376,7 @@
       "tags": [6],
       "prix": 0,
       "popularite": 92,
-      "description": "Quartier traditionnel des geishas.",
+      "description": "Gion est le quartier historique des geishas de Kyoto. Ses ruelles pavées, maisons de thé en bois et lanternes rouges évoquent l’époque Edo. Hanami-koji et Shirakawa sont les plus belles artères.\n\nEn fin d’après-midi, on peut parfois apercevoir une geiko ou maiko se rendant à ses rendez-vous. Le quartier est particulièrement photogénique au crépuscule ou pendant la floraison des cerisiers.\n\nRespect et discrétion sont de mise : il est interdit de photographier les geishas sans autorisation. Une promenade nocturne à Gion est un voyage dans le temps.",
       "horaires": "24h/24",
       "duree": "1h",
       "image_url": "img/gion.jpg"
@@ -393,7 +389,7 @@
       "tags": [3],
       "prix": 0,
       "popularite": 85,
-      "description": "Marché gastronomique de Kyoto.",
+      "description": "Nishiki est le marché alimentaire couvert de Kyoto, surnommé « la cuisine de Kyoto ». Sur 400 mètres, plus de 100 échoppes proposent pickles, fruits de mer séchés, wagashi, thé et couteaux artisanaux.\n\nOn y goûte sur le pouce : brochettes de poulpe, tamagoyaki, baby crab frit… C’est l’endroit idéal pour découvrir la gastronomie raffinée de Kyoto.\n\nL’ambiance est animée mais conviviale, et les commerçants sont souvent ravis d’expliquer leurs produits. Un paradis pour les foodies.",
       "horaires": "09:00-18:00",
       "duree": "1h",
       "image_url": "img/nishiki.jpg"
@@ -406,7 +402,7 @@
       "tags": [4, 6],
       "prix": 600,
       "popularite": 88,
-      "description": "Temple figurant sur la pièce de 10 yens.",
+      "description": "Le temple Byodo-in à Uji est célèbre pour son pavillon du Phénix (Hoo-do) qui figure sur la pièce de 10 yens et le billet de 10 000 yens. Construit en 1052, il représente le palais du Bouddha Amida dans le Paradis de l’Ouest.\n\nLe bâtiment principal, parfaitement symétrique, se reflète dans l’étang et offre une image d’une sérénité absolue. Le musée Hoshokan expose des trésors exceptionnels dont les 52 bodhisattvas en bois flotté.\n\nMoins fréquenté que les grands temples de Kyoto, Byodo-in est une perle de l’époque Heian et un lieu de contemplation rare.",
       "horaires": "09:00-17:00",
       "duree": "1h",
       "image_url": "img/byodoin.jpg"
@@ -419,7 +415,7 @@
       "tags": [5, 7],
       "prix": 1200,
       "popularite": 89,
-      "description": "Tour rouge emblématique de Tokyo.",
+      "description": "Inaugurée en 1958, la Tokyo Tower (333 m) s’inspire de la tour Eiffel mais est peinte en rouge et blanc. Longtemps le plus haut bâtiment du Japon, elle reste un symbole rétro et attachant de Tokyo.\n\nLes deux observatoires offrent une belle vue, surtout la nuit quand la ville s’illumine. Le FootTown au pied propose aquarium, musée et boutiques.\n\nMoins chère et souvent moins bondée que la Skytree, la Tokyo Tower garde un charme nostalgique et une ambiance plus intime.",
       "horaires": "09:00-23:00",
       "duree": "1h",
       "image_url": "img/tokyo_tower.jpg"
@@ -432,7 +428,7 @@
       "tags": [6],
       "prix": 0,
       "popularite": 80,
-      "description": "Sanctuaire avec une tête de lion géante.",
+      "description": "Ce petit sanctuaire caché dans le quartier animé de Namba est célèbre pour son pavillon en forme de tête de lion géant (emon-den). On entre symboliquement dans la bouche du lion pour que nos mauvais esprits soient dévorés.\n\nLors du festival en janvier, un rituel de tir à la corde spectaculaire a lieu. Le contraste entre ce sanctuaire insolite et l’agitation de Dotonbori à deux pas est saisissant.\n\nGratuit et rapide à visiter, c’est une curiosité locale très photogénique et amusante.",
       "horaires": "06:00-17:00",
       "duree": "30min",
       "image_url": "img/namba_yasaka.jpg"
@@ -445,7 +441,7 @@
       "tags": [7, 5],
       "prix": 1500,
       "popularite": 86,
-      "description": "Plus haute tour du Japon.",
+      "description": "Abeno Harukas est le plus haut gratte-ciel du Japon (300 m). Son observatoire « Harukas 300 » aux 58e-60e étages offre une vue panoramique sur Osaka, avec un café et un jardin suspendu.\n\nLe bâtiment abrite également un grand magasin, un musée d’art et un hôtel. La plateforme extérieure protégée par des vitres permet de voir jusqu’à 40 km par temps clair.\n\nMoins connu des touristes étrangers, c’est pourtant l’un des meilleurs points de vue sur la ville, surtout au coucher du soleil.",
       "horaires": "09:00-22:00",
       "duree": "1h",
       "image_url": "img/abeno.jpg"
@@ -458,7 +454,7 @@
       "tags": [3],
       "prix": 900,
       "popularite": 75,
-      "description": "Jardin japonais traditionnel.",
+      "description": "Isuien est un magnifique jardin japonais créé au XVIIe siècle et agrandi au XXe. Il utilise la technique du « paysage emprunté » (shakkei) en intégrant le mont Wakakusa et le toit de Todaiji dans sa composition.\n\nDeux parties distinctes : un jardin avec étang et lanternes, et un autre plus moderne avec maison de thé. La promenade est calme et contemplative.\n\nSouvent moins bondé que les grands sites, Isuien est une perle pour les amateurs de jardins japonais traditionnels.",
       "horaires": "09:30-16:30",
       "duree": "1h",
       "image_url": "img/isuien.jpg"
@@ -471,7 +467,7 @@
       "tags": [6, 4],
       "prix": 0,
       "popularite": 92,
-      "description": "Immense cimetière sacré entouré de cèdres.",
+      "description": "Okunoin sur le mont Koya (à 2h de Nara) est le plus grand cimetière du Japon, avec plus de 200 000 tombes et stèles moussues bordées de cèdres centenaires. C’est le lieu de repos final du moine Kobo Daishi, fondateur du bouddhisme Shingon.\n\nLa promenade de 2 km jusqu’au mausolée est empreinte de mystère et de spiritualité. La nuit, les lanternes allumées créent une atmosphère surnaturelle.\n\nL’un des lieux les plus sacrés et émouvants du Japon, où l’on ressent profondément le cycle de la vie et de la mort.",
       "horaires": "24h/24",
       "duree": "2h",
       "image_url": "img/okunoin.jpg"
@@ -484,7 +480,7 @@
       "tags": [4],
       "prix": 0,
       "popularite": 93,
-      "description": "Parc mémorial dédié à la paix.",
+      "description": "Le Parc de la Paix d’Hiroshima s’étend sur 12 hectares autour du Dôme et du musée. On y trouve la Flamme de la Paix, le Cénotaphe avec les noms des victimes, et la Cloche de la Paix que l’on peut sonner.\n\nDes milliers de grues en papier colorées, symbole de paix offert par les enfants du monde entier, ornent le Mémorial des enfants. Le parc est un lieu de recueillement et d’espoir.\n\nGratuit et ouvert jour et nuit, c’est un espace de verdure apaisant au cœur de la ville reconstruite.",
       "horaires": "24h/24",
       "duree": "1h",
       "image_url": "img/peace_park.jpg"
@@ -497,7 +493,7 @@
       "tags": [2, 7],
       "prix": 0,
       "popularite": 98,
-      "description": "Carrefour le plus célèbre du monde.",
+      "description": "Shibuya Crossing est le passage piéton le plus fréquenté du monde : jusqu’à 3 000 personnes traversent en même temps à chaque feu vert. Filmé dans de nombreux films, c’est le symbole de l’énergie de Tokyo.\n\nLe meilleur point de vue est depuis le Starbucks du bâtiment Qfront ou la passerelle de la station. Le soir, les néons et écrans géants amplifient le spectacle.\n\nGratuit et ouvert 24h/24, c’est une expérience à vivre au moins une fois, surtout la nuit quand la foule devient hypnotique.",
       "horaires": "24h/24",
       "duree": "30min",
       "image_url": "img/shibuya.jpg"
@@ -510,7 +506,7 @@
       "tags": [7],
       "prix": 0,
       "popularite": 90,
-      "description": "Quartier futuriste sur une île artificielle.",
+      "description": "Odaiba est une île artificielle futuriste dans la baie de Tokyo. On y trouve le Gundam géant, le centre commercial DiverCity, le musée teamLab Borderless, et une réplique de la Statue de la Liberté.\n\nLa promenade en bord de mer offre une vue imprenable sur le Rainbow Bridge illuminé et la skyline de Tokyo. Le soir, c’est un lieu romantique très apprécié.\n\nAccessible par le train automatique Yurikamome, Odaiba est une bulle de modernité et de divertissement idéale pour une demi-journée.",
       "horaires": "24h/24",
       "duree": "2h",
       "image_url": "img/odaiba.jpg"
@@ -523,7 +519,7 @@
       "tags": [5],
       "prix": 0,
       "popularite": 70,
-      "description": "Petit site patrimonial offrant une belle vue.",
+      "description": "Ce petit phare historique sur l’île de Miyajima, construit en 1933, est rarement visité mais offre une très belle vue sur le torii d’Itsukushima et la mer intérieure.\n\nLe chemin pour y accéder est tranquille et longe la côte. À marée basse, on peut même marcher sur les rochers autour.\n\nC’est une alternative paisible aux sites principaux, parfaite pour les amateurs de photographie ou ceux qui cherchent un peu de calme.",
       "horaires": "24h/24",
       "duree": "30min",
       "image_url": "img/itsukushima_lighthouse.jpg"
@@ -536,7 +532,7 @@
       "tags": [3],
       "prix": 0,
       "popularite": 65,
-      "description": "Promenade au bord de la rivière d’Hiroshima.",
+      "description": "Cette promenade le long de la rivière Motoyasu, juste en face du Dôme de la Paix, est un lieu de détente apprécié des habitants. Cerisiers au printemps, bancs et pelouses en font un endroit agréable.\n\nC’est aussi un point de vue émouvant sur le Dôme, surtout au coucher du soleil quand il se reflète dans l’eau.\n\nUn petit parc tranquille pour se poser après la visite du musée et réfléchir à la paix.",
       "horaires": "24h/24",
       "duree": "1h",
       "image_url": "img/motoyasu.jpg"
@@ -549,7 +545,7 @@
       "tags": [4],
       "prix": 370,
       "popularite": 85,
-      "description": "Château reconstruit entouré d’un parc.",
+      "description": "Reconstruit en 1958 après avoir été détruit par la bombe, le château d’Hiroshima (appelé aussi Carp Castle) est entouré d’un beau parc et de douves. Le donjon abrite un musée sur l’histoire samouraï.\n\nAu printemps, les cerisiers en fleurs autour des douves sont magnifiques. Du dernier étage, vue sur la ville et la mer intérieure.\n\nMoins spectaculaire que d’autres châteaux, il reste un lieu agréable et paisible pour une visite rapide.",
       "horaires": "09:00-18:00",
       "duree": "1h",
       "image_url": "img/hiroshima_castle.jpg"
